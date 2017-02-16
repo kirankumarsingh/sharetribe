@@ -8,6 +8,14 @@ module PersonViewUtils
   end
 
   def person_display_names(person, community)
+    person_display_name_for_type(person, community.name_display_type)
+  end
+
+  def person_display_name_for_type(person, name_display_type)
+    person_display_names_for_type(person, name_display_type).join(" ")
+  end
+
+  def person_display_names_for_type(person, name_display_type)
     if person.nil?
       names(
         first_name: nil,
